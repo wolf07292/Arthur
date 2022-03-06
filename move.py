@@ -35,3 +35,28 @@ def key_pressed(event):
         move_wrap(player, step, 0)
     elif event.keysym == 'left':
         move_wrap(player, -step, 0)
+master = tkinter.Tk()
+
+step = 32
+N_X = 10
+N_Y =10
+WIDTH = step * N_X
+HEIGHT = STEP * N_Y
+a = False
+player_pic = tkinter.PhotoImage(file=r".\assets\doctor.png")
+
+canvas = tkinter.Canvas(master, bg='#FCAB08',
+                        width=WIDTH, height=HEIGHT)
+
+player_pas = (random.randint(0, N_X - 1) * step,
+              random.randint(0, N_Y - 1) * step)
+print(player_pos)
+label = tkinter.Label(master, text="Не попадись!")
+restart = tkinter.Button(master, text="Начать заново",
+                         command=prepare_and_start)
+restart.pack()
+label.pack()
+canvas.pack()
+prepare_and_start()
+master.bind("<KeyPress>", key_pressed)
+master.mainloop()
