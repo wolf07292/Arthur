@@ -1,0 +1,19 @@
+class Button:
+    def __init__(self):
+        self.quantity = 0
+
+    def click(self):
+        self.quantity +=1
+
+    def reset(self):
+        self.quantity = 0
+
+    def click_count(self):#вывод
+        self.quantity
+
+b = Button()
+b.click()
+b.click()
+b.click()
+#вызов вывода
+b.reset()
