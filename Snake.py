@@ -32,7 +32,7 @@ tk.update()
 present_color1 = "blue"
 present_color2 = "green"
 presents_list = []
-presents_size = 10
+presents_size = 25
 for i in range(presents_size):
     x = random.randrange(virtual_game_x)
     y = random.randrange(virtual_game_y)
@@ -64,6 +64,14 @@ def cooling_with_a_wall(snake_x, snake_y, game_width, game_height):
         tk.destroy()
     elif snake_x  > 49 or snake_y > 49:
         tk.destroy()
+
+
+def check_we_touch_self(f_x, f_y):
+    if not(snake_x_nav == 0 and snake_y_nav == 0):
+        for i in range(len(snake_list)):
+            if snake_list[i][0] == f_x and snake_list[i][1] == f_y:
+                print("found!!!")
+                tk.destroy()
 
 
 def check_if_we_found_present():
@@ -111,6 +119,7 @@ while 1:
     check_can_we_delete_snake_item()
     check_if_we_found_present()
     cooling_with_a_wall(snake_x, snake_y, game_width, game_height)
+    check_we_touch_self(snake_x + snake_x_nav, snake_y + snake_y_nav)
     snake_x = snake_x + snake_x_nav
     snake_y = snake_y + snake_y_nav
     snake_paint_item(canvas, snake_x, snake_y)
