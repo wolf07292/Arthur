@@ -107,7 +107,7 @@ def game_over():
 
 def cooling_with_a_wall():
     if snake_x>virtual_game_x or snake_x<0 or snake_y>virtual_game_y or snake_y<0:
-        print("Game over")
+        print("Game over!")
         game_over()
 
 def check_we_touch_self(f_x, f_y):
